@@ -1,6 +1,6 @@
 import React from "react";
 import Carousel from "./carousel";
-import reactLogo from "./assets/joyfully.png";
+import joyfully from "./assets/joyfully.png";
 import planningImage from "./assets/planning.png";
 import wiselyImage from "./assets/wisely.png";
 import "./index.css";
@@ -19,7 +19,7 @@ const images = [
     description: "Grow your wealth with our proven investment strategies",
   },
   {
-    src: reactLogo,
+    src: joyfully,
     alt: "Joyful Living",
     title: "Live Life Fully",
     description: "Balance saving and living with our flexible financial solutions",
@@ -31,7 +31,7 @@ const App: React.FC = () => {
     <div className="flex flex-col min-h-screen w-screen bg-gradient-to-br from-blue-50 to-sky-100">
       <header className="w-full py-6 px-8 bg-white/80 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <h1 className="text-3xl font-serif text-blue-800">Stanbic Bank</h1>
+          <h1 className="text-3xl font-serif text-blue-800">Stanbic</h1>
           <nav className="space-x-6">
             <button className="text-white hover:text-blue-500 hover:bg-white transition-colors">Get In Touch</button>
           </nav>
@@ -46,7 +46,7 @@ const App: React.FC = () => {
           <p className="text-center text-blue-600 mb-12 text-xl animate-slide-up">
             Discover the perfect balance of planning, investing, and living
           </p>
-          <div className="w-full max-w-3xl mx-auto bg-white/70 backdrop-blur-md rounded-3xl shadow-xl p-4 hover:shadow-2xl transition-shadow duration-300">
+          <div className="w-full max-w-xl mx-auto bg-white/70 backdrop-blur-md rounded-3xl shadow-xl p-4 hover:shadow-2xl transition-shadow duration-300">
             <Carousel images={images} />
           </div>
           <div className="mt-12 flex justify-center space-x-8">
