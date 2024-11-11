@@ -53,10 +53,10 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
           alt={images[currentIndex].alt}
           className={`w-full h-full object-cover carousel-${animationModes[currentAnimation]}`}
         />
-        <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white px-4 py-3 md:py-4">
+        {/* <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white px-4 py-3 md:py-4">
           <h3 className="text-lg md:text-xl font-semibold">{images[currentIndex].title}</h3>
           <p className="text-sm md:text-base">{images[currentIndex].description}</p>
-        </div>
+        </div> */}
       </div>
       <button onClick={prevSlide} className="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 text-2xl md:text-4xl text-white bg-black bg-opacity-40 hover:bg-opacity-70 p-2 rounded-full">‹</button>
       <button onClick={nextSlide} className="absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 text-2xl md:text-4xl text-white bg-black bg-opacity-40 hover:bg-opacity-70 p-2 rounded-full">›</button>
