@@ -24,46 +24,35 @@ const animationModes = [
 const Carousel: React.FC<CarouselProps> = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentAnimation, setCurrentAnimation] = useState(0);
+  const [nextIndex, setNextIndex] = useState(1);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      const nextCurrentIndex = (currentIndex + 1) % images.length;
+      const nextNextIndex = (nextCurrentIndex + 1) % images.length;
+      setCurrentIndex(nextCurrentIndex);
+      setNextIndex(nextNextIndex);
       setCurrentAnimation((prevAnim) => (prevAnim + 1) % animationModes.length);
     }, 5000);
 
     return () => clearInterval(timer);
-  }, [images.length]);
-
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    setCurrentAnimation((prevAnim) => (prevAnim + 1) % animationModes.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => prevIndex === 0 ? images.length - 1 : prevIndex - 1);
-    setCurrentAnimation((prevAnim) => prevAnim === 0 ? animationModes.length - 1 : prevAnim - 1);
-  };
-
-  const getImageSrc = (image: Image) => {
-    return window.innerWidth <= 300 ? image.src.sm : image.src.default;
-  };
+  }, [images.length, currentIndex]);
 
   return (
-    <div className="relative w-full h-full overflow-hidden rounded-lg">
-      <div className="relative h-full">
+    <div className="relative w-[300px] h-[250px] mx-auto overflow-hidden rounded-lg shadow-lg">
+      <div className="relative w-[300px] h-[250px]">
         <img
           key={`${currentIndex}-${animationModes[currentAnimation]}`}
-          src={getImageSrc(images[currentIndex])}
+          src={images[currentIndex].src}
           alt={images[currentIndex].alt}
-          className={`w-full h-full object-cover carousel-${animationModes[currentAnimation]}`}
+          className={`w-[300px] h-[250px] object-cover carousel-${animationModes[currentAnimation]} absolute top-0 left-0 z-10`}
         />
-        {/* <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white px-4 py-3 md:py-4">
-          <h3 className="text-lg md:text-xl font-semibold">{images[currentIndex].title}</h3>
-          <p className="text-sm md:text-base">{images[currentIndex].description}</p>
-        </div> */}
+        <img
+          src={images[nextIndex].src}
+          alt={images[nextIndex].alt}
+          className="w-[300px] h-[250px] object-cover absolute top-0 left-0 z-0"
+        />
       </div>
-      <button onClick={prevSlide} className="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 text-2xl md:text-4xl text-white bg-black bg-opacity-40 hover:bg-opacity-70 p-2 rounded-full">‹</button>
-      <button onClick={nextSlide} className="absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 text-2xl md:text-4xl text-white bg-black bg-opacity-40 hover:bg-opacity-70 p-2 rounded-full">›</button>
     </div>
   );
 };
