@@ -3,23 +3,35 @@ import Carousel from "./carousel";
 import joyfully from "./assets/joyfully.png";
 import planningImage from "./assets/planning.png";
 import wiselyImage from "./assets/wisely.png";
+import joyfullyImageSm from "./assets/sm-joyfully.png";
+import planningImageSm from "./assets/sm-planning.png";
+import wiselyImageSm from "./assets/sm-wisely.png";
 import "./index.css";
 
 const images = [
   {
-    src: planningImage,
+    src: {
+      default: planningImage,
+      sm: planningImageSm
+    },
     alt: "Wise Planning",
     title: "Plan Your Future Wisely",
     description: "Expert guidance to help you create a solid financial roadmap",
   },
   {
-    src: wiselyImage,
+    src: {
+      default: wiselyImage,
+      sm: wiselyImageSm
+    },
     alt: "Smart Investing",
     title: "Invest With Confidence",
     description: "Grow your wealth with our proven investment strategies",
   },
   {
-    src: joyfully,
+    src: {
+      default: joyfully,
+      sm: joyfullyImageSm
+    },
     alt: "Joyful Living",
     title: "Live Life Fully",
     description: "Balance saving and living with our flexible financial solutions",

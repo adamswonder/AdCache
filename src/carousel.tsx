@@ -44,12 +44,16 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
     setCurrentAnimation((prevAnim) => prevAnim === 0 ? animationModes.length - 1 : prevAnim - 1);
   };
 
+  const getImageSrc = (image: Image) => {
+    return window.innerWidth <= 300 ? image.src.sm : image.src.default;
+  };
+
   return (
     <div className="relative w-full h-full overflow-hidden rounded-lg">
       <div className="relative h-full">
         <img
           key={`${currentIndex}-${animationModes[currentAnimation]}`}
-          src={images[currentIndex].src}
+          src={getImageSrc(images[currentIndex])}
           alt={images[currentIndex].alt}
           className={`w-full h-full object-cover carousel-${animationModes[currentAnimation]}`}
         />
