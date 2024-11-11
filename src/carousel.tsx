@@ -29,7 +29,7 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
       setCurrentAnimation((prevAnim) => (prevAnim + 1) % animationModes.length);
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(timer);
   }, [images.length]);
@@ -45,21 +45,21 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
   };
 
   return (
-    <div className="relative w-full max-w-lg mx-auto overflow-hidden rounded-lg shadow-lg">
-      <div className="relative">
+    <div className="relative w-full h-full overflow-hidden rounded-lg">
+      <div className="relative h-full">
         <img
           key={`${currentIndex}-${animationModes[currentAnimation]}`}
           src={images[currentIndex].src}
           alt={images[currentIndex].alt}
-          className={`w-full h-60 object-cover carousel-${animationModes[currentAnimation]}`}
+          className={`w-full h-full object-cover carousel-${animationModes[currentAnimation]}`}
         />
-        <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white px-4 py-2">
-          <h3 className="text-lg font-semibold">{images[currentIndex].title}</h3>
-          <p className="text-sm">{images[currentIndex].description}</p>
+        <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white px-4 py-3 md:py-4">
+          <h3 className="text-lg md:text-xl font-semibold">{images[currentIndex].title}</h3>
+          <p className="text-sm md:text-base">{images[currentIndex].description}</p>
         </div>
       </div>
-      <button onClick={prevSlide} className="absolute left-2 top-1/2 transform -translate-y-1/2 text-3xl text-white bg-black bg-opacity-40 hover:bg-opacity-70 p-2 rounded-full">‹</button>
-      <button onClick={nextSlide} className="absolute right-2 top-1/2 transform -translate-y-1/2 text-3xl text-white bg-black bg-opacity-40 hover:bg-opacity-70 p-2 rounded-full">›</button>
+      <button onClick={prevSlide} className="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 text-2xl md:text-4xl text-white bg-black bg-opacity-40 hover:bg-opacity-70 p-2 rounded-full">‹</button>
+      <button onClick={nextSlide} className="absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 text-2xl md:text-4xl text-white bg-black bg-opacity-40 hover:bg-opacity-70 p-2 rounded-full">›</button>
     </div>
   );
 };
