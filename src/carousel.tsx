@@ -29,7 +29,7 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
       setCurrentAnimation((prevAnim) => (prevAnim + 1) % animationModes.length);
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(timer);
   }, [images.length]);
