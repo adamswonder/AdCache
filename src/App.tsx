@@ -91,9 +91,9 @@
 
 import React from "react";
 import Carousel from "./carousel";
-import joyfullyImageSm from "./assets/sm-joyfully.png";
-import planningImageSm from "./assets/sm-planning.png";
-import wiselyImageSm from "./assets/sm-wisely.png";
+import joyfullyImageSm from "./assets/Artboard 28.png";
+import planningImageSm from "./assets/Artboard 28 copy 5.png";
+import wiselyImageSm from "./assets/Artboard 28 copy 12.png";
 import "./index.css";
 
 const images = [

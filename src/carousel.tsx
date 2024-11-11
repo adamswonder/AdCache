@@ -39,21 +39,26 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
   }, [images.length, currentIndex]);
 
   return (
-    <div className="relative w-[300px] h-[250px] mx-auto overflow-hidden rounded-lg shadow-lg">
+    <div className="relative mx-auto overflow-hidden rounded-lg shadow-lg">
       <div className="relative w-[300px] h-[250px]">
         <img
           key={`${currentIndex}-${animationModes[currentAnimation]}`}
           src={images[currentIndex].src}
           alt={images[currentIndex].alt}
-          className={`w-[300px] h-[250px] object-cover carousel-${animationModes[currentAnimation]} absolute top-0 left-0 z-10`}
+          width={300}
+          height={250}
+          className={`w-[300px] h-[250px] object-fit carousel-${animationModes[currentAnimation]} absolute top-0 left-0 z-10`}
         />
         <img
           src={images[nextIndex].src}
           alt={images[nextIndex].alt}
-          className="w-[300px] h-[250px] object-cover absolute top-0 left-0 z-0"
+          width={300}
+          height={250}
+
+          className="w-[300px] h-[250px] object-fit absolute top-0 left-0 z-0"
         />
       </div>
-    </div>
+    </div>  
   );
 };
 
